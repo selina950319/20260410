@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 練習專案主目錄</title>
+    <style>
+        /* 基礎版面設定 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            color: #333;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .student-id {
+            text-align: center;
+            color: #888;
+            font-size: 1rem;
+            margin-top: -5px;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* 主要佈局容器 */
+        .layout-container {
+            display: flex;
+            gap: 25px;
+            height: 70vh; /* 設定一個視窗高度，讓 iframe 有足夠空間 */
+            min-height: 500px;
+        }
+
+        /* 左側導覽列 */
+        nav {
+            flex: 0 0 280px; /* 固定寬度，不縮放 */
+            overflow-y: auto; /* 當連結過多時，自動產生滾動條 */
+            padding-right: 10px;
+        }
+
+        /* 列表與連結樣式設計 */
+        .directory-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .directory-list a {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+        }
+
+        .directory-list a::before {
+            content: '📄'; /* 預設圖示 */
+            margin-right: 12px;
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* 滑鼠懸停時的視覺回饋 */
+        .directory-list a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.15);
+            color: #3498db;
+            border-color: #3498db;
+        }
+
+        .directory-list a:hover::before {
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        /* 右側內容顯示區 */
+        .content-area {
+            flex: 1; /* 佔滿剩餘空間 */
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden; /* 確保 iframe 圓角效果 */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>專案主目錄</h1>
+    <p class="student-id">學號：123456789 (請替換)</p>
+    <p>請點擊下方的連結前往各個練習專案：</p>
+
+    <div class="layout-container">
+        <nav>
+            <ul class="directory-list">
+                <li><a href="ex1/index.html" target="content-frame">練習一 (Hello Vue)</a></li>
+                <li><a href="ex2/index.html" target="content-frame">練習二 (資料綁定)</a></li>
+                <li><a href="ex3/index.html" target="content-frame">練習三 (事件處理)</a></li>
+                <li><a href="ex4/index.html" target="content-frame">練習四 (雙向綁定)</a></li>
+                <li><a href="ex5/index.html" target="content-frame">練習五 (條件渲染)</a></li>
+                <li><a href="ex6/index.html" target="content-frame">練習六 (列表渲染)</a></li>
+                <li><a href="ex7/index.html" target="content-frame">練習七 (計算屬性)</a></li>
+                <li><a href="ex8/index.html" target="content-frame">練習八 (樣式綁定)</a></li>
+                <li><a href="ex9/index.html" target="content-frame">練習九 (綜合應用)</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <iframe 
+                name="content-frame" 
+                srcdoc="<body style='font-family: Segoe UI, sans-serif; display: flex; justify-content: center; align-items: center; height: 100%; background-color: #fff; color: #999; text-align: center; border-radius: 12px;'><div><h2 style='font-size: 2rem; color: #ccc; font-weight: 300;'>歡迎使用</h2><p style='font-size: 1.2rem; color: #aaa;'>請從左側選單選擇一個練習項目來檢視。</p></div></body>"
+            >
+            </iframe>
+        </main>
+    </div>
+
+</body>
+</html>
